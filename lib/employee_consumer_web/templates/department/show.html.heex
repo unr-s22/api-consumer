@@ -1,0 +1,27 @@
+<h1>Show Department</h1>
+
+<ul>
+
+  <li>
+    <strong>Name:</strong>
+    <%= @department.name %>
+  </li>
+</ul>
+  <table>
+    <tr>
+    <th>First Name</th>
+    <th>Last Name</th>
+    <th>Employee Number</th>
+    </tr>
+    <%= for e <- @department.employees do %>
+      <tr>
+      <td><%= e["first_name"] %></td>
+      <td><%= e["last_name"] %></td>
+    <td><%= e["employee_number"] %></td>
+      </tr>
+    <% end %>
+</table>
+
+
+<span><%= link "Edit", to: Routes.department_path(@conn, :edit, @department) %></span> |
+<span><%= link "Back", to: Routes.department_path(@conn, :index) %></span>
